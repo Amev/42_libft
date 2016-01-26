@@ -9,7 +9,7 @@ Elle comprend l'ensemble des fonctions réécrites afin d'être utilisées dans 
 
 `$> make -C libft/`
 
-Inclure le header de la lib dans votre header `#include "libft/libft_ext.h"`
+Inclure le header de la lib dans votre header `#include "libft/libft.h"`
 
 Et compiler votre projet avec les flags `-L libft/ -lft`
 
