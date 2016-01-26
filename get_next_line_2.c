@@ -46,7 +46,7 @@ static int			gnl_read(t_list **list, int fd, size_t *len, t_buff *buff)
 	size_t				j;
 
 	j = 0;
-	while (!buff->index && ++j && (ret = read(fd, buff->mem, BUFF_SIZE)))
+	while (!buff->index && ++j && (ret = read(fd, buff->mem, GNL_BUFF)))
 	{
 		i = 0;
 		buff->mem[ret] = 0;
@@ -69,7 +69,7 @@ int					get_next_line_2(int const fd, char **line)
 	size_t				len;
 	int					i;
 
-	if (BUFF_SIZE <= 0)
+	if (GNL_BUFF <= 0)
 		return (-1);
 	len = 0;
 	list = NULL;

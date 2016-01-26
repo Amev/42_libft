@@ -20,7 +20,7 @@
 # include <unistd.h>
 # include <limits.h>
 
-# define BUFF_SIZE 2048
+# define GNL_BUFF 2048
 
 typedef struct			s_gnl_list
 {
@@ -33,11 +33,8 @@ typedef struct			s_gnl_list
 
 typedef struct			s_buff
 {
-	char				mem[BUFF_SIZE + 1];
+	char				mem[GNL_BUFF + 1];
 	int					index;
 }						t_buff;
-
-int						get_next_line(int const fd, char **line);
-int						get_next_line_2(int const fd, char **line);
 
 #endif

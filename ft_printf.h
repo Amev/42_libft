@@ -39,7 +39,6 @@ int				ptf_int(char tag, va_list arg, t_flags **f);
 int				ptf_str(char *str, t_flags **flags, char tag);
 int				ptf_nb_with_base(char tag, va_list arg, t_flags **flags);
 int				ptf_check_tag(char tag, va_list arg, t_flags **flags);
-int				ft_printf(const char *format, ...);
 char			*ptf_toupper(char **str);
 unsigned int	ptf_choose_base(char tag);
 char			*ptf_cnv(unsigned int base, va_list arg, char tag, t_flags **f);

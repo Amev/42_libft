@@ -18,7 +18,7 @@ t_gnl_list	*gnl_createnew(int fd, t_gnl_list **fd_list)
 
 	if (fd < 0 || !(new = (t_gnl_list *)malloc(sizeof(t_gnl_list))))
 		return (NULL);
-	if (!(new->mem = ft_strnew(BUFF_SIZE)))
+	if (!(new->mem = ft_strnew(GNL_BUFF)))
 		return (NULL);
 	new->nxt = NULL;
 	new->prv = NULL;
@@ -59,11 +59,11 @@ int			gnl_write(t_list **l, char **line, int res)
 	size_t				j;
 
 	i = 0;
-	if (!(str = ft_strnew(BUFF_SIZE)))
+	if (!(str = ft_strnew(GNL_BUFF)))
 		return (-1);
 	while (*l && !(j = 0))
 	{
-		str = ft_strncpy(str, (char *)(*l)->content, BUFF_SIZE);
+		str = ft_strncpy(str, (char *)(*l)->content, GNL_BUFF);
 		while (str[j] && str[j] != '\n')
 			(*line)[i++] = str[j++];
 		tmp = *l;
@@ -89,7 +89,7 @@ int			gnl_read(t_list **list, int fd, size_t *len, t_gnl_list **f_l)
 	i = 0;
 	if ((*f_l)->mem[0] || ((*f_l)->test == 1 && *list))
 		return (1);
-	while ((ret = read(fd, (*f_l)->mem, BUFF_SIZE)))
+	while ((ret = read(fd, (*f_l)->mem, GNL_BUFF)))
 	{
 		i = 0;
 		if (ret == -1 || !(tmp = ft_lstnew((*f_l)->mem, ret)))
@@ -99,10 +99,10 @@ int			gnl_read(t_list **list, int fd, size_t *len, t_gnl_list **f_l)
 			i++;
 		if ((*f_l)->mem[i++] == '\n')
 		{
-			(*f_l)->mem = ft_strncpy((*f_l)->mem, (*f_l)->mem + i, BUFF_SIZE);
+			(*f_l)->mem = ft_strncpy((*f_l)->mem, (*f_l)->mem + i, GNL_BUFF);
 			return (1);
 		}
-		ft_bzero((*f_l)->mem, BUFF_SIZE);
+		ft_bzero((*f_l)->mem, GNL_BUFF);
 	}
 	return (i == 0 ? 0 : 1);
 }
@@ -117,7 +117,7 @@ int			get_next_line(int const fd, char **line)
 	i = 0;
 	len = 0;
 	list = NULL;
-	if (BUFF_SIZE <= 0 || !(f_l = gnl_memlist(fd, &f_l)))
+	if (GNL_BUFF <= 0 || !(f_l = gnl_memlist(fd, &f_l)))
 		return (-1);
 	if (f_l->mem && f_l->mem[i] && !(f_l->test = 0))
 	{
@@ -129,7 +129,7 @@ int			get_next_line(int const fd, char **line)
 			f_l->test = 1;
 		if (f_l->mem[i] == '\n')
 			i++;
-		f_l->mem = ft_strncpy(f_l->mem, f_l->mem + i, BUFF_SIZE);
+		f_l->mem = ft_strncpy(f_l->mem, f_l->mem + i, GNL_BUFF);
 	}
 	if ((i = gnl_read(&list, fd, &len, &f_l)) == -1)
 		return (-1);

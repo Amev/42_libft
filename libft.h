@@ -17,6 +17,9 @@
 # include <string.h>
 # include <unistd.h>
 
+# include "ft_printf.h"
+# include "get_next_line.h"
+
 typedef struct		s_list
 {
 	void			*content;
@@ -104,7 +107,10 @@ int					ft_wstrlen(wchar_t *str);
 int					ft_wcharlen(wchar_t c);
 char				*ft_itoa_base_u(unsigned long long int nb, unsigned int
 					base);
-
 unsigned int		ft_lstlen(t_list *lst);
+
+int					ft_printf(const char *format, ...);
+int					get_next_line(int const fd, char **line);
+int					get_next_line_2(int const fd, char **line);
 
 #endif
