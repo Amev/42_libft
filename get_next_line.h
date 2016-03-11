@@ -6,14 +6,14 @@
 /*   By: vame <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 14:53:46 by vame              #+#    #+#             */
-/*   Updated: 2015/02/13 16:15:28 by vame             ###   ########.fr       */
+/*   Updated: 2016/03/11 11:10:35 by vame             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include "../libft/libft.h"
+# include "./libft.h"
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/uio.h>

@@ -6,7 +6,7 @@
 /*   By: skerkour <skerkour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 18:24:45 by skerkour          #+#    #+#             */
-/*   Updated: 2015/05/02 18:25:41 by skerkour         ###   ########.fr       */
+/*   Updated: 2016/03/11 11:08:37 by vame             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ unsigned int	ft_lstlen(t_list *lst)
 	if (lst)
 	{
 		while (lst)
-			++ret, lst = lst->next;
+		{
+			++ret;
+			lst = lst->next;
+		}
 	}
 	return (ret);
 }

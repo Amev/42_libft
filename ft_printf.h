@@ -6,14 +6,14 @@
 /*   By: vame <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/12 16:30:20 by vame              #+#    #+#             */
-/*   Updated: 2015/01/23 11:19:33 by vame             ###   ########.fr       */
+/*   Updated: 2016/03/11 11:10:04 by vame             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../libft/libft.h"
+# include "./libft.h"
 # include <stdarg.h>
 # include <stdio.h>
 # include <wchar.h>
